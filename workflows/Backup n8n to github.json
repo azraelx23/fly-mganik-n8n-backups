@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -310,8 +310,16 @@
     {
       "parameters": {
         "resource": "file",
-        "owner": "={{$node[\"Globals\"].json[\"repo\"][\"owner\"]}}",
-        "repository": "={{$node[\"Globals\"].json[\"repo\"][\"name\"]}}",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"Globals\"].json[\"repo\"][\"owner\"]}}",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"Globals\"].json[\"repo\"][\"name\"]}}",
+          "mode": "name"
+        },
         "filePath": "={{$node[\"Globals\"].json[\"repo\"][\"path\"]}}{{$node[\"OneAtATime\"].json[\"name\"]}}.json",
         "fileContent": "={{$node[\"isDiffOrNew\"].json[\"n8n_data_stringy\"]}}",
         "commitMessage": "=[N8N Backup] {{$node[\"OneAtATime\"].json[\"name\"]}}.json ({{$json[\"github_status\"]}})"
@@ -355,7 +363,7 @@
             },
             {
               "name": "repo.name",
-              "value": "mganik-fly-n8n-backups"
+              "value": "fly-mganik-n8n-backups"
             },
             {
               "name": "repo.path",
@@ -489,7 +497,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-05-30T08:25:04.000Z",
-  "versionId": "78b2e216-dfa4-4f22-8c47-716eb9840357"
+  "triggerCount": 1,
+  "updatedAt": "2024-05-30T08:28:46.000Z",
+  "versionId": "a4db7314-79a0-4715-bf92-f075a5a50a27"
 }
