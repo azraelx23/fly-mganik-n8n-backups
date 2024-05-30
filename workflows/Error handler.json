@@ -1,0 +1,65 @@
+{
+  "active": false,
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-30T05:14:58.371Z",
+  "id": "XXkQiMWUUJgCFwx2",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Error handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "49a0397b-2eb4-4b31-9017-7174933af7aa",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        960,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "=ERROR :  {{ $json.execution.url }}\nMessage:  {{ $json.execution.error.message }}\nStacktrace:  {{ $json.execution.error.stack }}",
+        "options": {}
+      },
+      "id": "ed19bacd-3510-4b31-a9a7-ddf7d129dd6e",
+      "name": "Discord",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1180,
+        240
+      ],
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "qUIrDeD5HYqdNr3c",
+          "name": "mGanik error - Discord Webhook account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-30T08:22:35.000Z",
+  "versionId": "2b1c3418-ac31-41f4-b9d0-75fb722aadb8"
+}
