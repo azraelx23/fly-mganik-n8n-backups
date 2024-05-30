@@ -93,7 +93,9 @@
   },
   "createdAt": "2024-05-30T08:16:58.599Z",
   "id": "AsKCToRmDyfFItcp",
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "staging - distributor list cache",
   "nodes": [
     {
@@ -168,6 +170,12 @@
         580
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
@@ -201,12 +209,18 @@
         720
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body.brand, $json.body.brand, \"mganik\") }}\"\n}\n",
+        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body && $json.body.brand,$json.body.brand,'mganik') }}\"\n}",
         "options": {}
       },
       "id": "b4e7067e-0fd6-4ec0-947a-0555ddd9da0d",
@@ -301,6 +315,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-05-30T08:16:58.599Z",
-  "versionId": "1082dd59-e720-4f99-a073-6f206bc827fb"
+  "updatedAt": "2024-05-30T08:34:32.000Z",
+  "versionId": "5edc9088-e2af-4885-b8d1-02f91d95f480"
 }
