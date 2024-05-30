@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "When clicking \"Test workflow\"": {
       "main": [
@@ -93,7 +93,9 @@
   },
   "createdAt": "2024-05-30T08:17:21.460Z",
   "id": "6NiafmfUYQ2OJDgh",
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "prod - distributor list cache",
   "nodes": [
     {
@@ -168,6 +170,12 @@
         580
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
@@ -201,12 +209,18 @@
         720
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body.brand, $json.body.brand, \"mganik\") }}\"\n}\n",
+        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body && $json.body.brand,$json.body.brand,'mganik') }}\"\n}",
         "options": {}
       },
       "id": "4786a956-ca3c-404f-a7e1-0f39fedc1c53",
@@ -300,7 +314,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-05-30T08:17:34.000Z",
-  "versionId": "06320fc3-93ab-4a36-9674-2fe3de2c3633"
+  "triggerCount": 1,
+  "updatedAt": "2024-05-30T08:35:56.000Z",
+  "versionId": "83f3f86c-3e3b-440f-9fc5-105ca9a136ca"
 }
