@@ -1,0 +1,306 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GithubVars": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Create": {
+      "main": [
+        [],
+        [
+          {
+            "node": "GitHub Edit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variables": {
+      "main": [
+        [
+          {
+            "node": "GithubVars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "minify JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "GitHub Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "minify JSON": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-30T08:16:58.599Z",
+  "id": "AsKCToRmDyfFItcp",
+  "meta": null,
+  "name": "staging - distributor list cache",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1d770cda-195a-40c2-ab9d-a35a8539150a",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        580
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Github handling\n**if create new file errors out, then try edit",
+        "height": 441.665074863717,
+        "width": 583.0536168211937
+      },
+      "id": "1ab84acd-8931-4091-a9ed-bde5e54c3af9",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"github-repo-owner\": \"azraelx23\",\n  \"github-repo-name\": \"mganik-cache\",\n  \"github-branch-name\": \"main\"\n}\n",
+        "options": {}
+      },
+      "id": "140d45bc-a85f-4169-9e43-af5497b6295f",
+      "name": "GithubVars",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -400,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "=staging/{{ $('Variables').item.json.brand }}-distributors-v1.json",
+        "fileContent": "={{ $json.minified_json_string }}",
+        "commitMessage": "=[n8n Bot] staging/{{ $('Variables').item.json.brand }}-distributors-v1.json update",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "81df8e73-7060-478a-b77a-8776ef0e5418",
+      "name": "GitHub Create",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        540,
+        580
+      ],
+      "typeVersion": 1,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "=staging/{{ $('Variables').item.json.brand }}-distributors-v1.json",
+        "fileContent": "={{ $json.minified_json_string }}",
+        "commitMessage": "=[n8n Bot] staging/{{ $('Variables').item.json.brand }}-distributors-v1.json update",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "4a0ba056-02bd-4d5c-b955-fa4b4be92879",
+      "name": "GitHub Edit",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        680,
+        720
+      ],
+      "typeVersion": 1,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body.brand, $json.body.brand, \"mganik\") }}\"\n}\n",
+        "options": {}
+      },
+      "id": "b4e7067e-0fd6-4ec0-947a-0555ddd9da0d",
+      "name": "Variables",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -580,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.mganik.com/api/v1/distributors",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "brand",
+              "value": "={{ $('Variables').item.json.brand }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ed35e712-1297-4613-b97e-b99063861d53",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -180,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "57da6c8f-7700-481e-a9ae-1faff7350f24",
+              "name": "minified_json_string",
+              "value": "={{ $json.minified_json_string}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f559d996-fb82-4d95-b533-c769cd1d3150",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        180,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  \n  //item.json[\"minified_json_string\"] = minify(item.json.data);\n  item.json[\"minified_json_string\"] = JSON.stringify(item.json);\n}\n\nreturn $input.all();"
+      },
+      "id": "9664a9f5-ac64-403b-868b-80c9500dfff4",
+      "name": "minify JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "cache-dist-staging",
+        "options": {}
+      },
+      "id": "d0b3d073-e4b4-48a4-9b22-749440489cba",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -780,
+        820
+      ],
+      "webhookId": "572d3be4-cdeb-4440-82e8-91fdee937b77"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-30T08:16:58.599Z",
+  "versionId": "1082dd59-e720-4f99-a073-6f206bc827fb"
+}
