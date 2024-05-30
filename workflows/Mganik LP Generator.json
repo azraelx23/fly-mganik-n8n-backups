@@ -1,0 +1,1232 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "GithubVars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Aggregate generated texts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If NOT is hidden",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Layout Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If NOT is hidden": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate generated texts": {
+      "main": [
+        [
+          {
+            "node": "Merge list to 1 string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge list to 1 string": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Layout Template": {
+      "main": [
+        [
+          {
+            "node": "GitHub Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GithubVars": {
+      "main": [
+        [
+          {
+            "node": "Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Create": {
+      "main": [
+        [
+          {
+            "node": "Github: Merge staging to main",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GitHub Edit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Edit": {
+      "main": [
+        [
+          {
+            "node": "Github: Merge staging to main",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Youtube Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Variables": {
+      "main": [
+        [
+          {
+            "node": "Image Array create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Official MPs Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OrderOnline Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CTA Button Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Global Block Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Array create": {
+      "main": [
+        [
+          {
+            "node": "Split Out1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Download Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Create Img2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Download Image 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Edit Img2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Download Image": {
+      "main": [
+        [
+          {
+            "node": "GitHub Create Img2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Download Image 2": {
+      "main": [
+        [
+          {
+            "node": "GitHub Edit Img2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Image Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Youtube Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CTA Button Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Official MPs Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OrderOnline Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Global Block Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Carousel Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carousel Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-05-30T05:15:30.520Z",
+  "id": "d6ZbKx2ZbpZBVKsr",
+  "meta": null,
+  "name": "Mganik LP Generator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "bef1e129-b795-43bc-8b26-f6dae25f98d0",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2500,
+        260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "44f6ce1a-66c8-45d7-9594-26895ece821d",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        480,
+        2380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Upload Landing Page to Github\n**if create new file errors out, then try edit",
+        "height": 441.665074863717,
+        "width": 583.0536168211937
+      },
+      "id": "1d40750e-b654-4a65-bef9-986de15f5239",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        760,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "sections",
+        "options": {}
+      },
+      "id": "d85283c4-8319-4463-9ca5-0fa9cc3f5508",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "9dd4d01f-0f2f-4d72-b736-88d7b8c6dafc",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -600,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "799d80a1-3e4e-46e6-a2a0-04687411789a",
+              "name": "sections_html",
+              "value": "={{ $json['sections_html'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7fdc2a48-ce2c-43af-bf19-4d744ef521c8",
+              "name": "landing_page_slug",
+              "value": "={{ $node[\"Variables\"].json[\"landing_page_slug\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "4ec04ece-5a3b-4b2a-807d-e197659a1ebd",
+              "name": "landing_page_title",
+              "value": "={{ $node[\"Variables\"].json[\"landing_page_title\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "92f044d2-e469-47a6-aa58-7750fae95b8d",
+              "name": "gtm_id",
+              "value": "={{ $node[\"Variables\"].json[\"gtm_id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "08309f32-f359-4eb4-9408-f15a3b8b7654",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -40,
+        240
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1b5d31d7-7bff-4546-90c2-5a6162621d71",
+              "leftValue": "={{ $json.is_hidden }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cc75bb63-f0a1-46ee-9ba6-55d87e61a7ae",
+      "name": "If NOT is hidden",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "section-array",
+        "include": "specifiedFields",
+        "fieldsToInclude": "text",
+        "options": {}
+      },
+      "id": "3d6ecf1e-c142-482a-b5dc-d9de6bf65e0d",
+      "name": "Aggregate generated texts",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -420,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let htmlString = \"\";\n\n// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  for (const section of item.json[\"section-array\"]){\n    htmlString += section.text;\n  }\n  item.json[\"sections_html\"] = htmlString;\n}\n\nreturn $input.all();"
+      },
+      "id": "d6dd1d62-335c-409d-8630-8f6d713fc384",
+      "name": "Merge list to 1 string",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-img-section"
+      },
+      "id": "a539088e-6586-4283-838c-f7744e042373",
+      "name": "Image Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/layout/template-layout"
+      },
+      "id": "50b930a5-d465-45c9-92cd-121f0635b94e",
+      "name": "Layout Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        180,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.github.com/repos/{{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}/{{$node[\"GithubVars\"].json[\"github-repo-name\"]}}/merges",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "X-GitHub-Api-Version",
+              "value": "2022-11-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"base\":\"main\",\"head\":\"staging\",\"commit_message\":\"[n8n bot] merge staging to main\"}",
+        "options": {}
+      },
+      "id": "a022854b-481c-40ba-8b17-968b84aeeb96",
+      "name": "Github: Merge staging to main",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"github-repo-owner\": \"azraelx23\",\n  \"github-repo-name\": \"cloudflare-pages-test\",\n  \"github-branch-name\": \"staging\"\n}\n",
+        "options": {}
+      },
+      "id": "27b20b2f-dc6c-4a3f-a390-10f752e67096",
+      "name": "GithubVars",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -2280,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "=lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
+        "fileContent": "={{ $json.text }}",
+        "commitMessage": "=[n8n Bot] lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "3df62920-63b2-4b26-8714-547684afd756",
+      "name": "GitHub Create",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        840,
+        280
+      ],
+      "typeVersion": 1,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "=lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
+        "fileContent": "={{ $json.text }}",
+        "commitMessage": "=[n8n Bot] lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "e334a083-7f0c-49b8-92e3-95093edf79ba",
+      "name": "GitHub Edit",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        980,
+        420
+      ],
+      "typeVersion": 1,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-youtube-section"
+      },
+      "id": "16ffd2f5-0153-4e69-96d8-fdb420d24719",
+      "name": "Youtube Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"landing_page_slug\": \"lp2-metafiber\",\n  \"landing_page_title\": \"LP2 Metafiber Mike Landing Test Page\", \n  \"gtm_id\": \"GTM-TM6TWW9\", \n  \"cloudflare_web_analytics_token\": \"2094c7d795834fbcb226db0ac1166a52\",\n  \"sections\": [\n    {\n      \"is_hidden\": false,\n      \"type\": \"image\",\n      \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/section-1.webp\",\n      \"name\": \"section-1.webp\"\n    },\n     {\n      \"is_hidden\": false,\n      \"type\": \"carousel\",\n      \"images\" : [\n        {\n          \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/testimonial-1.png\",\n          \"name\": \"testimonial-1.png\"\n        },\n        {\n          \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/testimonial-2.png\",\n          \"name\": \"testimonial-2.png\"\n        },\n        {\n          \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/testimonial-3.png\",\n          \"name\": \"testimonial-3.png\"\n        }\n      ]\n      \n    },\n     {\n      \"is_hidden\": true,\n      \"type\": \"image\",\n      \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/3peptide-product-reveal.png\",\n      \"name\": \"section-2.png\"\n    },\n     {\n      \"is_hidden\": true,\n      \"type\": \"image\",\n      \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/3peptide-tensi.webp\",\n      \"name\": \"section-3.webp\"\n    },\n    {\n      \"is_hidden\": false,\n      \"type\": \"youtube\",\n      \"youtube_id\": \"XzJsKMgNlik\",\n      \"name\": \"Mganik Care Video\",\n      \"description\": \"*Hasil bervariasi tergantung individu\"\n    },\n     {\n      \"is_hidden\": false,\n      \"type\": \"cta_button\",\n      \"button_image_url\": \"https://mganik-lp-templates.pages.dev/assets/img/button-pusat_png.png\",\n      \"button_image_name\": \"button-pusat_png.png\",\n      \"button_link\": \"https://api.whatsapp.com/send?phone=6281584021443&amp;text=Halo%20saya%20dapat%20iklan%20dari%20Sosmed.%20Mau%20order%20%2A3PEPTIDE%2A%2C%20apakah%20bisa%20dibantu%3F\"\n     },\n    {\n      \"is_hidden\": false,\n      \"type\": \"official_marketplaces\",\n      \"tokopedia_shop_name\": \"mganikofficialshop\",\n      \"tokopedia_product_slug\": \"mganik-3peptide-suplemen-jantung-kardiovaskular-apel-manggis-330gr-1-tub-m3p\",\n      \"tokopedia_ext_param\": \"whid%3D10844458%26src%3Dshop?utm_source=facebook&amp;utm_medium=brand&amp;utm_campaign=mganik_10224_290224\",\n      \"shopee_shop_name\": \"mganikofficialshop\",\n      \"shopee_category_id\": 100001,\n      \"shopee_item_id\": 13901577427,\n      \"shopee_ext_param\": \"entryPoint=ShopByPDP&amp;upstream=search&amp;deep_and_web=1&amp;utm_campaign=s341419753_ss_id_webs_mganik&amp;utm_source=website&amp;utm_medium=seller&amp;utm_content=utmlp&amp;smtt=9\",\n      \"tiktok_shop_name\": \"mganikofficial\",\n      \"tiktok_t\" : \"8kOIywd58nE\"\n     },\n    {\n      \"is_hidden\": false,\n      \"type\": \"orderonline\",\n      \"orderonline_username\" : \"mganikcare\",\n      \"orderonline_product_slug\" : \"HbA1C\",\n      \"orderonline_product_id\" : \"65af732825ac3f206600239e\",\n      \"orderonline_form_id\" : \"oo-embed-form-HbA1C-2916\",\n      \"orderonline_form_title\" : \"Form Pemesanan\",\n      \"orderonline_setup_redirect\" : \"https://mganikcare.orderonline.id\",\n      \"orderonline_init_arg1\" : \"65a6570909a670d19709af04\",\n      \"orderonline_init_arg3\" : \"65af732825ac3f206600239f\",\n      \"orderonline_button_action_text\" : \"Klik untuk pemesanan\"\n      \n    },\n    {\n      \"is_hidden\": false,\n      \"type\": \"global_block\",\n      \"global_block_slug\": \"mganik-cari-agen\",\n      \"global_block_onload_function\":\"getDistributors('mganik')\"\n    },\n    {\n      \"is_hidden\": false,\n      \"type\": \"global_block\",\n      \"global_block_slug\": \"mganik-scientific-references\"\n    }\n  ]\n}\n",
+        "options": {}
+      },
+      "id": "47634a0e-426f-43df-89d3-1b743e927f73",
+      "name": "Variables",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -2120,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-official-marketplaces-section"
+      },
+      "id": "568203ce-8989-4351-a74a-47312e73e9a4",
+      "name": "Official MPs Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-orderonline-section"
+      },
+      "id": "b8e3d930-772f-4a5e-997f-cd0a51cf25b9",
+      "name": "OrderOnline Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        100,
+        1380
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-cta-button-section"
+      },
+      "id": "a9b9ca96-b303-4acf-b1ba-ffd943f004b7",
+      "name": "CTA Button Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-global-block-section"
+      },
+      "id": "8bd6887c-8138-4933-a367-54c33e2d52a9",
+      "name": "Global Block Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        100,
+        1560
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items / sections, if found image to be uploaded, push them to imageArray\nfor (const item of $input.all()) {\n  const imageArray = [];\n  for(const section of item.json.sections){\n    if(!section.is_hidden){\n      if(section.type === 'image'){\n        section.landing_page_slug = item.json.landing_page_slug;\n        imageArray.push({\n          landing_page_slug: item.json.landing_page_slug,\n          file_url: section.file_url,\n          name: section.name\n        });\n      } else if(section.type === 'cta_button'){\n        section.landing_page_slug = item.json.landing_page_slug;\n        imageArray.push({\n          landing_page_slug: item.json.landing_page_slug,\n          file_url: section.button_image_url,\n          name: section.button_image_name\n        });\n      } else if(section.type === 'carousel'){\n        section.landing_page_slug = item.json.landing_page_slug;\n        for(const img of section.images){\n          img.landing_page_slug = item.json.landing_page_slug;\n          imageArray.push({\n            landing_page_slug: item.json.landing_page_slug,\n            file_url: img.file_url,\n            name: img.name\n          });\n        }\n      }\n    }\n    \n  }\n  item.json.imageArray = imageArray;\n}\n\nreturn $input.all();"
+      },
+      "id": "7c20ee59-d136-4d31-b7a9-79a411b4d91a",
+      "name": "Image Array create",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1940,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "imageArray",
+        "options": {}
+      },
+      "id": "63261fba-1118-43e0-9a76-fde94bdf150a",
+      "name": "Split Out1",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -2420,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "14bb9e4b-088a-4f70-82cc-7d7ca696de5b",
+      "name": "Loop Over Items1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -2220,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "=lps/{{ $('HTTP Download Image').item.json.landing_page_slug }}/img/{{ $('HTTP Download Image').item.json.name }}",
+        "binaryData": true,
+        "commitMessage": "=[n8n Bot] lps/{{ $('HTTP Download Image').item.json.landing_page_slug }}/img/{{ $('HTTP Download Image').item.json.name }}",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "d5e874b2-c58c-428e-95cc-afc6e68062b3",
+      "name": "GitHub Create Img2",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        -1840,
+        760
+      ],
+      "typeVersion": 1,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "=lps/{{ $('HTTP Download Image').item.json.landing_page_slug }}/img/{{ $('HTTP Download Image').item.json.name }}",
+        "binaryData": true,
+        "commitMessage": "=[n8n Bot] lps/{{ $('HTTP Download Image').item.json.landing_page_slug }}/img/{{ $('HTTP Download Image').item.json.name }}",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "f031f04c-3b3a-488d-b31a-184f732767e4",
+      "name": "GitHub Edit Img2",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        -1500,
+        900
+      ],
+      "typeVersion": 1,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "5078c7b0-cd92-4a53-9f08-75087417b456",
+      "name": "No Operation, do nothing1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.file_url }}",
+        "options": {}
+      },
+      "id": "ee69464d-b76b-4297-9638-f07ce4c09000",
+      "name": "HTTP Download Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2020,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.file_url }}",
+        "options": {}
+      },
+      "id": "2664782a-8b41-4f04-87ab-083edeea360f",
+      "name": "HTTP Download Image 2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1680,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "image-array",
+        "options": {}
+      },
+      "id": "3f386a7e-e513-497a-b218-bbf60feb2ad0",
+      "name": "Aggregate",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.sections = $('Image Array create').first().json.sections;\n}\n\nreturn $input.all();"
+      },
+      "id": "383a847b-785f-47d2-b321-9f8e28e31de0",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -940,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-carousel-section"
+      },
+      "id": "ca887cdc-f673-41f8-b7f7-7e1e74a09191",
+      "name": "Carousel Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        100,
+        1760
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "image",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "3c559625-daeb-4a6f-b133-00bcee50a585",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "youtube",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=youtube"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "6cc53b4c-f4d8-49d6-bbdd-df297836d9c1",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "cta_button",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cta_button"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "25e16668-2b1e-4780-a732-f304cb985870",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "official_marketplaces",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "official_marketplaces"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "b545b95b-7bc4-4385-a3a5-1066d7ee1b28",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "orderonline",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "orderonline"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "02968e5a-bc68-408d-9b9e-f844ba507d40",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "global_block",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "global_block"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "9ef1b5fb-8dc0-49ad-a3e6-e7807396c99e",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "carousel",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "carousel"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5d20ed1c-1f70-4746-a10f-bf77ee6b48a6",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        -200,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Upload all images found to Github\n**if create new file errors out, then try edit",
+        "height": 572.4045983517468,
+        "width": 1504.172986850494
+      },
+      "id": "884024f7-4017-4f6a-a103-9441a0f6e35d",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2540,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Render HTML Templates",
+        "height": 2056.100099753781,
+        "width": 1625.0080009833691
+      },
+      "id": "d77ce8af-078d-4303-917c-b214bc6b139d",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        600
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-05-30T05:15:30.520Z",
+  "versionId": "e92de1bd-1f27-4e39-93ff-3703f052b95f"
+}
