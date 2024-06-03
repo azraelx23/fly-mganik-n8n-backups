@@ -422,7 +422,9 @@
   },
   "createdAt": "2024-05-30T05:15:30.520Z",
   "id": "d6ZbKx2ZbpZBVKsr",
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Mganik LP Generator",
   "nodes": [
     {
@@ -700,6 +702,12 @@
         280
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
@@ -733,6 +741,12 @@
         420
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
@@ -890,6 +904,12 @@
         760
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
@@ -923,6 +943,12 @@
         900
       ],
       "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
       "onError": "continueErrorOutput"
     },
     {
@@ -1227,6 +1253,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-05-30T05:15:30.520Z",
-  "versionId": "e92de1bd-1f27-4e39-93ff-3703f052b95f"
+  "updatedAt": "2024-06-03T03:39:44.000Z",
+  "versionId": "69374c59-2573-4840-8dfc-a7f691b9d357"
 }
