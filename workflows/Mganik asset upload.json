@@ -1,11 +1,11 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
-    "When clicking \"Test workflow\"": {
+    "Cloudinary Upload": {
       "main": [
         [
           {
-            "node": "GithubVars",
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -16,7 +16,29 @@
       "main": [
         [
           {
-            "node": "Variables",
+            "node": "Cloudinary Download Webp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cloudinary Download Webp": {
+      "main": [
+        [
+          {
+            "node": "GitHub Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "GithubVars",
             "type": "main",
             "index": 0
           }
@@ -25,24 +47,31 @@
     },
     "GitHub Create": {
       "main": [
-        [],
         [
           {
-            "node": "GitHub Edit",
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "GitHub Edit": {
+    "Webhook": {
       "main": [
-        []
-      ]
-    },
-    "Variables": {
-      "main": [
-        []
+        [
+          {
+            "node": "Cloudinary Upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -54,21 +83,10 @@
   "name": "Mganik asset upload",
   "nodes": [
     {
-      "parameters": {},
-      "id": "1582c392-c406-48cc-ad8b-693e5c453b63",
-      "name": "When clicking \"Test workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -2500,
-        260
-      ]
-    },
-    {
       "parameters": {
-        "content": "## Upload Asset to mGanik Assets \n**if create new file errors out, then try edit",
-        "height": 441.665074863717,
-        "width": 583.0536168211937
+        "content": "## Upload Asset to mGanik Assets \n** always create new file",
+        "height": 260.8799605063115,
+        "width": 410.3633583305377
       },
       "id": "9f23a0f6-7166-4dec-a0f0-03474c48e2e2",
       "name": "Sticky Note",
@@ -76,7 +94,7 @@
       "typeVersion": 1,
       "position": [
         -1440,
-        180
+        160
       ]
     },
     {
@@ -90,7 +108,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        -2280,
+        -1820,
         260
       ]
     },
@@ -107,9 +125,9 @@
           "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
           "mode": ""
         },
-        "filePath": "=lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
-        "fileContent": "={{ $json.text }}",
-        "commitMessage": "=[n8n Bot] lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
+        "filePath": "=img/{{ $('Code').item.json.file_name }}",
+        "binaryData": true,
+        "commitMessage": "=[n8n Bot] img/{{ $('Code').item.json.file_name }}",
         "additionalParameters": {
           "branch": {
             "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
@@ -120,8 +138,8 @@
       "name": "GitHub Create",
       "type": "n8n-nodes-base.github",
       "position": [
-        -1360,
-        300
+        -1380,
+        260
       ],
       "typeVersion": 1,
       "credentials": {
@@ -134,56 +152,125 @@
     },
     {
       "parameters": {
-        "resource": "file",
-        "operation": "edit",
-        "owner": {
-          "__rl": true,
-          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
-          "mode": ""
+        "method": "POST",
+        "url": "https://api.cloudinary.com/v1_1/mganik-test-cloud/image/upload",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "upload_preset",
+              "value": "mganik-webp"
+            },
+            {
+              "name": "api_key",
+              "value": "445979493216792"
+            }
+          ]
         },
-        "repository": {
-          "__rl": true,
-          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
-          "mode": ""
-        },
-        "filePath": "=lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
-        "fileContent": "={{ $json.text }}",
-        "commitMessage": "=[n8n Bot] lps/{{$node[\"Variables\"].json[\"landing_page_slug\"]}}/index.html",
-        "additionalParameters": {
-          "branch": {
-            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
-          }
-        }
-      },
-      "id": "82961e3e-6b5d-4416-866f-4290b092a94c",
-      "name": "GitHub Edit",
-      "type": "n8n-nodes-base.github",
-      "position": [
-        -1220,
-        440
-      ],
-      "typeVersion": 1,
-      "credentials": {
-        "githubApi": {
-          "id": "E7bouk80WqUWI5Ml",
-          "name": "azraelx23 mganik - GitHub account"
-        }
-      },
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "mode": "raw",
-        "jsonOutput": "{\n  \"landing_page_slug\": \"lp2-metafiber\",\n  \"landing_page_title\": \"LP2 Metafiber Mike Landing Test Page\", \n  \"gtm_id\": \"GTM-TM6TWW9\", \n  \"cloudflare_web_analytics_token\": \"2094c7d795834fbcb226db0ac1166a52\",\n  \"sections\": [\n    {\n      \"is_hidden\": false,\n      \"type\": \"image\",\n      \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/section-1.webp\",\n      \"name\": \"section-1.webp\"\n    },\n     {\n      \"is_hidden\": false,\n      \"type\": \"carousel\",\n      \"images\" : [\n        {\n          \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/testimonial-1.png\",\n          \"name\": \"testimonial-1.png\"\n        },\n        {\n          \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/testimonial-2.png\",\n          \"name\": \"testimonial-2.png\"\n        },\n        {\n          \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/testimonial-3.png\",\n          \"name\": \"testimonial-3.png\"\n        }\n      ]\n      \n    },\n     {\n      \"is_hidden\": true,\n      \"type\": \"image\",\n      \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/3peptide-product-reveal.png\",\n      \"name\": \"section-2.png\"\n    },\n     {\n      \"is_hidden\": true,\n      \"type\": \"image\",\n      \"file_url\": \"https://mganik-lp-templates.pages.dev/samples/3peptide-tensi.webp\",\n      \"name\": \"section-3.webp\"\n    },\n    {\n      \"is_hidden\": false,\n      \"type\": \"youtube\",\n      \"youtube_id\": \"XzJsKMgNlik\",\n      \"name\": \"Mganik Care Video\",\n      \"description\": \"*Hasil bervariasi tergantung individu\"\n    },\n     {\n      \"is_hidden\": false,\n      \"type\": \"cta_button\",\n      \"button_image_url\": \"https://mganik-lp-templates.pages.dev/assets/img/button-pusat_png.png\",\n      \"button_image_name\": \"button-pusat_png.png\",\n      \"button_link\": \"https://api.whatsapp.com/send?phone=6281584021443&amp;text=Halo%20saya%20dapat%20iklan%20dari%20Sosmed.%20Mau%20order%20%2A3PEPTIDE%2A%2C%20apakah%20bisa%20dibantu%3F\"\n     },\n    {\n      \"is_hidden\": false,\n      \"type\": \"official_marketplaces\",\n      \"tokopedia_shop_name\": \"mganikofficialshop\",\n      \"tokopedia_product_slug\": \"mganik-3peptide-suplemen-jantung-kardiovaskular-apel-manggis-330gr-1-tub-m3p\",\n      \"tokopedia_ext_param\": \"whid%3D10844458%26src%3Dshop?utm_source=facebook&amp;utm_medium=brand&amp;utm_campaign=mganik_10224_290224\",\n      \"shopee_shop_name\": \"mganikofficialshop\",\n      \"shopee_category_id\": 100001,\n      \"shopee_item_id\": 13901577427,\n      \"shopee_ext_param\": \"entryPoint=ShopByPDP&amp;upstream=search&amp;deep_and_web=1&amp;utm_campaign=s341419753_ss_id_webs_mganik&amp;utm_source=website&amp;utm_medium=seller&amp;utm_content=utmlp&amp;smtt=9\",\n      \"tiktok_shop_name\": \"mganikofficial\",\n      \"tiktok_t\" : \"8kOIywd58nE\"\n     },\n    {\n      \"is_hidden\": false,\n      \"type\": \"orderonline\",\n      \"orderonline_username\" : \"mganikcare\",\n      \"orderonline_product_slug\" : \"HbA1C\",\n      \"orderonline_product_id\" : \"65af732825ac3f206600239e\",\n      \"orderonline_form_id\" : \"oo-embed-form-HbA1C-2916\",\n      \"orderonline_form_title\" : \"Form Pemesanan\",\n      \"orderonline_setup_redirect\" : \"https://mganikcare.orderonline.id\",\n      \"orderonline_init_arg1\" : \"65a6570909a670d19709af04\",\n      \"orderonline_init_arg3\" : \"65af732825ac3f206600239f\",\n      \"orderonline_button_action_text\" : \"Klik untuk pemesanan\"\n      \n    },\n    {\n      \"is_hidden\": false,\n      \"type\": \"global_block\",\n      \"global_block_slug\": \"mganik-cari-agen\",\n      \"global_block_onload_function\":\"getDistributors('mganik')\"\n    },\n    {\n      \"is_hidden\": false,\n      \"type\": \"global_block\",\n      \"global_block_slug\": \"mganik-scientific-references\"\n    }\n  ]\n}\n",
         "options": {}
       },
-      "id": "c8e79af3-cdb0-4445-97b8-68a562ea2ea9",
-      "name": "Variables",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.3,
+      "id": "459113b7-05ab-431e-9c14-99bb08893fdc",
+      "name": "Cloudinary Upload",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
       "position": [
-        -2120,
+        -2200,
         260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Cloudinary Upload').item.json.secure_url }}",
+        "options": {}
+      },
+      "id": "e40b4090-a5d1-415f-8fde-25b752c96e64",
+      "name": "Cloudinary Download Webp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1640,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var getFileName = function (str) {\n    return str.split('\\\\').pop().split('/').pop();\n}\n\n// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.file_name = getFileName(item.json.url);\n}\n\nreturn $input.all();"
+      },
+      "id": "df2f6367-9096-4dce-9035-c6cbbf6a9310",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2000,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"success\",\n  \"cloudinary_url\": \"{{ $('Code').item.json.secure_url }}\",\n  \"cloudflare_pages_url\": \"https://mganik-assets.pages.dev/img/{{ $('Code').item.json.file_name }}\"\n}  ",
+        "options": {}
+      },
+      "id": "882ff5bb-d7fc-4e30-aac0-5c292e3f83b0",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -940,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "fbc0eb4a-f549-4b57-adbb-b50b11893182",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        -940,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "asset-upload",
+        "responseMode": "responseNode",
+        "options": {
+          "binaryPropertyName": "data"
+        }
+      },
+      "id": "b0dcebae-eb1b-4b22-affc-917bd9f6bf34",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -2440,
+        260
+      ],
+      "webhookId": "a40822fc-ade4-4382-88f1-3d6989b892cb"
+    },
+    {
+      "parameters": {
+        "content": "## Upload to cloudinary, reformat image to WebP",
+        "height": 336.4319485959734,
+        "width": 239.02224248434004
+      },
+      "id": "0cc985f0-06df-485b-9ddb-b7a0adf592a7",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2260,
+        100
       ]
     }
   ],
@@ -193,7 +280,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-06-05T03:42:45.000Z",
-  "versionId": "d7ed961c-d0c4-410d-864b-14df190603d8"
+  "triggerCount": 1,
+  "updatedAt": "2024-06-05T05:22:53.000Z",
+  "versionId": "ee9d03c2-223c-4214-9baa-8c7643ab9818"
 }
