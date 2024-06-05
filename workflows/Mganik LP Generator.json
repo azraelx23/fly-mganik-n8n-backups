@@ -655,7 +655,13 @@
       "position": [
         1160,
         260
-      ]
+      ],
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -1253,6 +1259,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-06-03T03:39:44.000Z",
-  "versionId": "69374c59-2573-4840-8dfc-a7f691b9d357"
+  "updatedAt": "2024-06-05T02:20:50.000Z",
+  "versionId": "ae192c54-60c4-4b93-99ec-7411602556fe"
 }
