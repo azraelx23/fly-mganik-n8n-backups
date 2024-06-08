@@ -872,7 +872,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items / sections, if found image to be uploaded, push them to imageArray\nfor (const item of $input.all()) {\n  for(const section of item.json.body.sections){\n    if(!section.is_hidden){\n      if(section.type === 'image'){\n        section.landing_page_slug = item.json.lp_slug;\n      } else if(section.type === 'cta_button'){\n        section.landing_page_slug = item.json.lp_slug;\n      } else if(section.type === 'carousel'){\n        section.landing_page_slug = item.json.lp_slug;\n      }\n    }\n    \n  }\n\n  item.json.sections=item.json.body.sections;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.cloudflare_web_analytics_token = item.json.body.cloudflare_web_analytics_token;\n}\n\nreturn $input.all();"
+        "jsCode": "// Loop over input items / sections, if found image to be uploaded, push them to imageArray\nfor (const item of $input.all()) {\n  for(const section of item.json.body.sections){\n    if(!section.is_hidden){\n      if(section.type === 'image'){\n        section.landing_page_slug = item.json.lp_slug;\n      } else if(section.type === 'cta_button'){\n        section.landing_page_slug = item.json.lp_slug;\n      } else if(section.type === 'carousel'){\n        section.landing_page_slug = item.json.lp_slug;\n      }\n    }\n    \n  }\n\n  item.json.sections=item.json.body.sections;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n}\n\nreturn $input.all();"
       },
       "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
       "name": "update json",
@@ -927,6 +927,21 @@
         240
       ],
       "webhookId": "e2261f1a-1a67-4d9d-9d74-e036ffa0ad83"
+    },
+    {
+      "parameters": {
+        "content": "## TASKS\n- add empty block section\n- add marketplace button section, if 2 items left right, if 1 then centered\n- check youtube shorts video works well or not on yt section\n- gtm_id is not needed anymore, it is per brand - done\n- need to use different template layout, per brand\n- distributor list is another type\n- check carousel styling, especially cut off arrows\n\n",
+        "height": 404.7359331090231,
+        "width": 572.9546996948338
+      },
+      "id": "8c4ace16-3164-4037-a34d-463c190fa750",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        540
+      ]
     }
   ],
   "pinData": {},
@@ -936,6 +951,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-05T07:16:42.000Z",
-  "versionId": "483556ad-145b-4a08-9a70-eb59d0988dc2"
+  "updatedAt": "2024-06-07T16:35:47.000Z",
+  "versionId": "679b9c1d-f57e-413f-bc8e-ab1647dd557d"
 }
