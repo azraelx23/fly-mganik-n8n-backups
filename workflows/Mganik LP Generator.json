@@ -172,17 +172,6 @@
         ]
       ]
     },
-    "Official MPs Template": {
-      "main": [
-        [
-          {
-            "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OrderOnline Template": {
       "main": [
         [
@@ -210,59 +199,6 @@
         [
           {
             "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Switch": {
-      "main": [
-        [
-          {
-            "node": "Image Section Template",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Youtube Section Template",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "CTA Button Template",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Official MPs Template",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "OrderOnline Template",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Global Block Section Template",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Carousel Section Template",
             "type": "main",
             "index": 0
           }
@@ -301,6 +237,142 @@
           }
         ]
       ]
+    },
+    "Empty Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marketplace Buttons Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Image Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Youtube Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CTA Button Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marketplace Buttons Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OrderOnline Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Global Block Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Carousel Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Empty Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTML Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Dist Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Dist Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-30T05:15:30.520Z",
@@ -317,8 +389,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        480,
-        2380
+        820,
+        2720
       ]
     },
     {
@@ -386,9 +458,9 @@
               "type": "string"
             },
             {
-              "id": "92f044d2-e469-47a6-aa58-7750fae95b8d",
-              "name": "gtm_id",
-              "value": "={{ $('update json').item.json.gtm_id }}",
+              "id": "b1b692be-842c-4773-b3bf-e2768caf6ba9",
+              "name": "=brand",
+              "value": "={{ $('update json').item.json.brand }}",
               "type": "string"
             }
           ]
@@ -471,7 +543,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-img-section"
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-img-section"
       },
       "id": "a539088e-6586-4283-838c-f7744e042373",
       "name": "Image Section Template",
@@ -485,7 +557,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/layout/template-layout"
+        "templateURL": "=https://mganiklptemplates.pages.dev/brands/{{$json.brand}}/template-layout"
       },
       "id": "50b930a5-d465-45c9-92cd-121f0635b94e",
       "name": "Layout Template",
@@ -591,7 +663,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-youtube-section"
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-youtube-section"
       },
       "id": "16ffd2f5-0153-4e69-96d8-fdb420d24719",
       "name": "Youtube Section Template",
@@ -605,35 +677,21 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-official-marketplaces-section"
-      },
-      "id": "568203ce-8989-4351-a74a-47312e73e9a4",
-      "name": "Official MPs Template",
-      "type": "n8n-nodes-document-generator.documentGenerator",
-      "typeVersion": 1,
-      "position": [
-        80,
-        1200
-      ]
-    },
-    {
-      "parameters": {
-        "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-orderonline-section"
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-orderonline-section"
       },
       "id": "b8e3d930-772f-4a5e-997f-cd0a51cf25b9",
       "name": "OrderOnline Template",
       "type": "n8n-nodes-document-generator.documentGenerator",
       "typeVersion": 1,
       "position": [
-        100,
-        1380
+        80,
+        1340
       ]
     },
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-cta-button-section"
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-cta-button-section"
       },
       "id": "a9b9ca96-b303-4acf-b1ba-ffd943f004b7",
       "name": "CTA Button Template",
@@ -647,29 +705,173 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-global-block-section"
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-global-block-section"
       },
       "id": "8bd6887c-8138-4933-a367-54c33e2d52a9",
       "name": "Global Block Section Template",
       "type": "n8n-nodes-document-generator.documentGenerator",
       "typeVersion": 1,
       "position": [
-        100,
-        1560
+        80,
+        1520
       ]
     },
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganik-lp-templates.pages.dev/templates/section/template-carousel-section"
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-carousel-section"
       },
       "id": "ca887cdc-f673-41f8-b7f7-7e1e74a09191",
       "name": "Carousel Section Template",
       "type": "n8n-nodes-document-generator.documentGenerator",
       "typeVersion": 1,
       "position": [
-        100,
-        1760
+        80,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Render HTML Templates",
+        "height": 2056.100099753781,
+        "width": 1625.0080009833691
+      },
+      "id": "d77ce8af-078d-4303-917c-b214bc6b139d",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items / sections, if found image to be uploaded, push them to imageArray\nfor (const item of $input.all()) {\n  \n  for(const section of item.json.body.sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }\n      //   section.landing_page_slug = item.json.lp_slug;\n      // if(section.type === 'image'){\n      //   section.landing_page_slug = item.json.lp_slug;\n      // } else if(section.type === 'cta_button'){\n      //   section.landing_page_slug = item.json.lp_slug;\n      // } else if(section.type === 'carousel'){\n      //   section.landing_page_slug = item.json.lp_slug;\n      // }\n    }\n    \n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.sections=item.json.body.sections;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n}\n\nreturn $input.all();"
+      },
+      "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
+      "name": "update json",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1100,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"success\",\n  \"url\": \"https://{{ $('GithubVars').item.json[\"github-repo-name\"] }}.pages.dev/{{ $('update json').item.json.lp_slug }}\"\n} ",
+        "options": {}
+      },
+      "id": "9c3d015c-afda-42e4-b0cc-3cf52b457d60",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1460,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4a129a23-22c4-4f39-800a-a8d0237aeaeb",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "992fc9f0-ccf8-4a95-ad44-13778d572704",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "e2261f1a-1a67-4d9d-9d74-e036ffa0ad83"
+    },
+    {
+      "parameters": {
+        "content": "## TASKS\n\n- add global section render\n- check youtube click not working\n- check carousel styling, especially cut off arrows\n\nDONE:\n- add marketplace button section, if 2 items left right, if 1 then centered -- done\n- need to use different template layout, per brand - done\n- distributor list is another type - done\n- gtm_id is not needed anymore, it is per brand - done\n- add empty block section -- done\n\n",
+        "height": 404.7359331090231,
+        "width": 572.9546996948338
+      },
+      "id": "8c4ace16-3164-4037-a34d-463c190fa750",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-empty-section"
+      },
+      "id": "81947ba2-6ac9-4929-beb8-acc79a68cb9a",
+      "name": "Empty Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-html-section"
+      },
+      "id": "8522da55-977e-41e8-a0e5-99411d49638b",
+      "name": "HTML Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-text-section"
+      },
+      "id": "954f8095-c55b-4287-92ee-2bdb3dce55fd",
+      "name": "Text Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2280
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-marketplace-buttons-section"
+      },
+      "id": "568203ce-8989-4351-a74a-47312e73e9a4",
+      "name": "Marketplace Buttons Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1160
       ]
     },
     {
@@ -757,7 +959,7 @@
                   {
                     "id": "25e16668-2b1e-4780-a732-f304cb985870",
                     "leftValue": "={{ $json.type }}",
-                    "rightValue": "official_marketplaces",
+                    "rightValue": "marketplace_buttons",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -768,7 +970,7 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "official_marketplaces"
+              "outputKey": "marketplace_buttons"
             },
             {
               "conditions": {
@@ -841,6 +1043,102 @@
               },
               "renameOutput": true,
               "outputKey": "carousel"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "e9e0a26b-fac7-41b4-b424-0418f612f5c7",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "empty_section",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "empty_section"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "fc575a9f-eba7-43b9-8dcf-0ef75fd50719",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "html",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "html"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "24c63842-1797-415f-8e64-5319224a8cfc",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "text",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "df8809ab-995c-4888-9f5e-e54187ce062b",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "get_distributors",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "get_distributors"
             }
           ]
         },
@@ -857,90 +1155,16 @@
     },
     {
       "parameters": {
-        "content": "## Render HTML Templates",
-        "height": 2056.100099753781,
-        "width": 1625.0080009833691
+        "useTemplateString": false,
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-get-distributors"
       },
-      "id": "d77ce8af-078d-4303-917c-b214bc6b139d",
-      "name": "Sticky Note2",
-      "type": "n8n-nodes-base.stickyNote",
+      "id": "2a75ff17-0048-497b-ad45-13354447baeb",
+      "name": "Get Dist Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
       "typeVersion": 1,
       "position": [
-        -960,
-        600
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Loop over input items / sections, if found image to be uploaded, push them to imageArray\nfor (const item of $input.all()) {\n  for(const section of item.json.body.sections){\n    if(!section.is_hidden){\n      if(section.type === 'image'){\n        section.landing_page_slug = item.json.lp_slug;\n      } else if(section.type === 'cta_button'){\n        section.landing_page_slug = item.json.lp_slug;\n      } else if(section.type === 'carousel'){\n        section.landing_page_slug = item.json.lp_slug;\n      }\n    }\n    \n  }\n\n  item.json.sections=item.json.body.sections;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n}\n\nreturn $input.all();"
-      },
-      "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
-      "name": "update json",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        -1100,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "={\n  \"status\": \"success\",\n  \"url\": \"https://{{ $('GithubVars').item.json[\"github-repo-name\"] }}.pages.dev/{{ $('update json').item.json.lp_slug }}\"\n} ",
-        "options": {}
-      },
-      "id": "9c3d015c-afda-42e4-b0cc-3cf52b457d60",
-      "name": "Respond to Webhook",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.1,
-      "position": [
-        1460,
-        260
-      ]
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "4a129a23-22c4-4f39-800a-a8d0237aeaeb",
-      "name": "Respond to Webhook1",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.1,
-      "position": [
-        1460,
-        460
-      ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "generate-lp",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "992fc9f0-ccf8-4a95-ad44-13778d572704",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1260,
-        240
-      ],
-      "webhookId": "e2261f1a-1a67-4d9d-9d74-e036ffa0ad83"
-    },
-    {
-      "parameters": {
-        "content": "## TASKS\n- add empty block section\n- add marketplace button section, if 2 items left right, if 1 then centered\n- check youtube shorts video works well or not on yt section\n- gtm_id is not needed anymore, it is per brand - done\n- need to use different template layout, per brand\n- distributor list is another type\n- check carousel styling, especially cut off arrows\n\n",
-        "height": 404.7359331090231,
-        "width": 572.9546996948338
-      },
-      "id": "8c4ace16-3164-4037-a34d-463c190fa750",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -1600,
-        540
+        80,
+        2480
       ]
     }
   ],
@@ -951,6 +1175,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-07T16:35:47.000Z",
-  "versionId": "679b9c1d-f57e-413f-bc8e-ab1647dd557d"
+  "updatedAt": "2024-06-12T10:55:15.000Z",
+  "versionId": "649b6baa-8945-4963-9797-1eb7601136bf"
 }
