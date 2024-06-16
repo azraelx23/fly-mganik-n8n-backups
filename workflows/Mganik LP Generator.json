@@ -557,7 +557,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "=https://mganiklptemplates.pages.dev/brands/{{$json.brand}}/template-layout"
+        "templateURL": "=https://mganiklptemplates.pages.dev/global/template-layout"
       },
       "id": "50b930a5-d465-45c9-92cd-121f0635b94e",
       "name": "Layout Template",
@@ -1175,6 +1175,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-12T10:55:15.000Z",
-  "versionId": "649b6baa-8945-4963-9797-1eb7601136bf"
+  "updatedAt": "2024-06-16T00:33:11.000Z",
+  "versionId": "9495d86e-ef27-49f9-aefb-c5ca778b4489"
 }
