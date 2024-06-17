@@ -282,6 +282,17 @@
         ]
       ]
     },
+    "Get Dist Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Switch": {
       "main": [
         [
@@ -360,11 +371,7 @@
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Get Dist Section Template": {
-      "main": [
+        ],
         [
           {
             "node": "No Operation, do nothing",
@@ -462,6 +469,12 @@
               "name": "=brand",
               "value": "={{ $('update json').item.json.brand }}",
               "type": "string"
+            },
+            {
+              "id": "629f7611-ac4f-456c-8db3-1c77fad03bf2",
+              "name": "js_css_contents",
+              "value": "={{ $('update json').item.json.js_css_contents }}",
+              "type": "string"
             }
           ]
         },
@@ -523,7 +536,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        -420,
+        -460,
         240
       ]
     },
@@ -747,7 +760,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items / sections, if found image to be uploaded, push them to imageArray\nfor (const item of $input.all()) {\n  \n  for(const section of item.json.body.sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }\n      //   section.landing_page_slug = item.json.lp_slug;\n      // if(section.type === 'image'){\n      //   section.landing_page_slug = item.json.lp_slug;\n      // } else if(section.type === 'cta_button'){\n      //   section.landing_page_slug = item.json.lp_slug;\n      // } else if(section.type === 'carousel'){\n      //   section.landing_page_slug = item.json.lp_slug;\n      // }\n    }\n    \n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.sections=item.json.body.sections;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n}\n\nreturn $input.all();"
+        "jsCode": "// Loop over input items / sections, if found image to be uploaded, push them to imageArray\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n}\n\nreturn $input.all();"
       },
       "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
       "name": "update json",
@@ -872,6 +885,20 @@
       "position": [
         80,
         1160
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-get-distributors"
+      },
+      "id": "2a75ff17-0048-497b-ad45-13354447baeb",
+      "name": "Get Dist Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2480
       ]
     },
     {
@@ -1142,7 +1169,9 @@
             }
           ]
         },
-        "options": {}
+        "options": {
+          "fallbackOutput": "extra"
+        }
       },
       "id": "5d20ed1c-1f70-4746-a10f-bf77ee6b48a6",
       "name": "Switch",
@@ -1151,20 +1180,6 @@
       "position": [
         -200,
         840
-      ]
-    },
-    {
-      "parameters": {
-        "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-get-distributors"
-      },
-      "id": "2a75ff17-0048-497b-ad45-13354447baeb",
-      "name": "Get Dist Section Template",
-      "type": "n8n-nodes-document-generator.documentGenerator",
-      "typeVersion": 1,
-      "position": [
-        80,
-        2480
       ]
     }
   ],
@@ -1175,6 +1190,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-16T00:33:11.000Z",
-  "versionId": "9495d86e-ef27-49f9-aefb-c5ca778b4489"
+  "updatedAt": "2024-06-16T16:50:00.000Z",
+  "versionId": "c3c1b502-c444-46d9-bdc3-b3693af34c7c"
 }
