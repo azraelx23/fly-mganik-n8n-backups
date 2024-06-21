@@ -100,7 +100,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "{\n  \"github-repo-owner\": \"azraelx23\",\n  \"github-repo-name\": \"mganik-assets\",\n  \"github-branch-name\": \"main\"\n}\n",
+        "jsonOutput": "{\n  \"github-repo-owner\": \"mganik-dss\",\n  \"github-repo-name\": \"mganik-assets\",\n  \"github-branch-name\": \"main\"\n}\n",
         "options": {}
       },
       "id": "bd10535d-a998-47a0-a1fa-a457a04a38ff",
@@ -281,6 +281,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-05T05:22:53.000Z",
-  "versionId": "ee9d03c2-223c-4214-9baa-8c7643ab9818"
+  "updatedAt": "2024-06-21T02:41:48.000Z",
+  "versionId": "be935f82-9f77-4a7e-adb9-51984c0fa211"
 }
