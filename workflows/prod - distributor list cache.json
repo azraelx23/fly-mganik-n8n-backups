@@ -128,7 +128,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "{\n  \"github-repo-owner\": \"azraelx23\",\n  \"github-repo-name\": \"mganik-cache\",\n  \"github-branch-name\": \"main\"\n}\n",
+        "jsonOutput": "{\n  \"github-repo-owner\": \"mganik-dss\",\n  \"github-repo-name\": \"mganik-cache\",\n  \"github-branch-name\": \"main\"\n}\n",
         "options": {}
       },
       "id": "283cca8a-8ac6-438f-b1ab-2ce4e1aa7236",
@@ -315,6 +315,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-05-30T08:35:56.000Z",
-  "versionId": "83f3f86c-3e3b-440f-9fc5-105ca9a136ca"
+  "updatedAt": "2024-06-21T02:38:29.000Z",
+  "versionId": "70e177f8-ded6-4506-949a-fc921a8df107"
 }
