@@ -584,7 +584,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={\n  \"github-repo-owner\": \"azraelx23\",\n  \"github-repo-name\": \"{{ $('update json').item.json.lp_repo_name }}\",\n  \"github-branch-name\": \"main\"\n}\n",
+        "jsonOutput": "={\n  \"github-repo-owner\": \"mganik-dss\",\n  \"github-repo-name\": \"{{ $('update json').item.json.lp_repo_name }}\",\n  \"github-branch-name\": \"main\"\n}\n",
         "options": {}
       },
       "id": "27b20b2f-dc6c-4a3f-a390-10f752e67096",
@@ -1190,6 +1190,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-16T16:50:00.000Z",
-  "versionId": "c3c1b502-c444-46d9-bdc3-b3693af34c7c"
+  "updatedAt": "2024-06-21T02:57:51.000Z",
+  "versionId": "93cf8562-0e11-4389-8828-1a286072d502"
 }
