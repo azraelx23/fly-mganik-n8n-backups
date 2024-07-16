@@ -234,7 +234,7 @@
     },
     {
       "parameters": {
-        "url": "https://api.mganik.com/api/v1/distributors",
+        "url": "https://api-affiliate.mganik.com/api/v1/distributors",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -315,6 +315,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-21T02:38:29.000Z",
-  "versionId": "70e177f8-ded6-4506-949a-fc921a8df107"
+  "updatedAt": "2024-07-16T02:30:25.000Z",
+  "versionId": "47a9d58e-f28a-41de-919b-19884e47040d"
 }
