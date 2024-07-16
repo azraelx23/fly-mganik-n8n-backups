@@ -127,7 +127,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "{\n  \"github-repo-owner\": \"azraelx23\",\n  \"github-repo-name\": \"mganik-cache\",\n  \"github-branch-name\": \"main\"\n}\n",
+        "jsonOutput": "{\n  \"github-repo-owner\": \"mganik-dss\",\n  \"github-repo-name\": \"mganik-cache\",\n  \"github-branch-name\": \"main\"\n}\n",
         "options": {}
       },
       "id": "140d45bc-a85f-4169-9e43-af5497b6295f",
@@ -152,9 +152,9 @@
           "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
           "mode": ""
         },
-        "filePath": "=staging/{{ $('Variables').item.json.brand }}-distributors-v1.json",
+        "filePath": "=staging/{{ $('Variables').item.json.brand }}-distributors-v1.js",
         "fileContent": "={{ $json.minified_json_string }}",
-        "commitMessage": "=[n8n Bot] staging/{{ $('Variables').item.json.brand }}-distributors-v1.json update",
+        "commitMessage": "=[n8n Bot] staging/{{ $('Variables').item.json.brand }}-distributors-v1.js update",
         "additionalParameters": {
           "branch": {
             "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
@@ -191,9 +191,9 @@
           "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
           "mode": ""
         },
-        "filePath": "=staging/{{ $('Variables').item.json.brand }}-distributors-v1.json",
+        "filePath": "=staging/{{ $('Variables').item.json.brand }}-distributors-v1.js",
         "fileContent": "={{ $json.minified_json_string }}",
-        "commitMessage": "=[n8n Bot] staging/{{ $('Variables').item.json.brand }}-distributors-v1.json update",
+        "commitMessage": "=[n8n Bot] staging/{{ $('Variables').item.json.brand }}-distributors-v1.js update",
         "additionalParameters": {
           "branch": {
             "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
@@ -219,7 +219,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body && $json.body.brand,$json.body.brand,'mganik') }}\"\n}",
+        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body && $json.body.brand,$json.body.brand,'golo') }}\"\n}",
         "options": {}
       },
       "id": "b4e7067e-0fd6-4ec0-947a-0555ddd9da0d",
@@ -233,7 +233,7 @@
     },
     {
       "parameters": {
-        "url": "https://api.mganik.com/api/v1/distributors",
+        "url": "https://api-affiliate.mganik.com/api/v1/distributors",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -261,7 +261,7 @@
             {
               "id": "57da6c8f-7700-481e-a9ae-1faff7350f24",
               "name": "minified_json_string",
-              "value": "={{ $json.minified_json_string}}",
+              "value": "=loadDistributors({{ $json.minified_json_string}});",
               "type": "string"
             }
           ]
@@ -315,6 +315,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2024-06-04T03:39:57.000Z",
-  "versionId": "41f5a61b-ede0-4834-bc5f-1257daa3cb28"
+  "updatedAt": "2024-07-16T03:12:08.000Z",
+  "versionId": "4ea3de69-c8d0-472a-8c16-7fc10015d88f"
 }
