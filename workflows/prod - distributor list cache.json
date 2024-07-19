@@ -153,9 +153,9 @@
           "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
           "mode": ""
         },
-        "filePath": "=prod/{{ $('Variables').item.json.brand }}-distributors-v1.json",
+        "filePath": "=prod/{{ $('Variables').item.json.brand }}-distributors-v1.js",
         "fileContent": "={{ $json.minified_json_string }}",
-        "commitMessage": "=[n8n Bot] prod/{{ $('Variables').item.json.brand }}-distributors-v1.json update",
+        "commitMessage": "=[n8n Bot] prod/{{ $('Variables').item.json.brand }}-distributors-v1.js update",
         "additionalParameters": {
           "branch": {
             "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
@@ -192,9 +192,9 @@
           "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
           "mode": ""
         },
-        "filePath": "=prod/{{ $('Variables').item.json.brand }}-distributors-v1.json",
+        "filePath": "=prod/{{ $('Variables').item.json.brand }}-distributors-v1.js",
         "fileContent": "={{ $json.minified_json_string }}",
-        "commitMessage": "=[n8n Bot] prod/{{ $('Variables').item.json.brand }}-distributors-v1.json update",
+        "commitMessage": "=[n8n Bot] prod/{{ $('Variables').item.json.brand }}-distributors-v1.js update",
         "additionalParameters": {
           "branch": {
             "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
@@ -220,7 +220,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body && $json.body.brand,$json.body.brand,'mganik') }}\"\n}",
+        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body && $json.body.brand,$json.body.brand,'golo') }}\"\n}",
         "options": {}
       },
       "id": "4786a956-ca3c-404f-a7e1-0f39fedc1c53",
@@ -262,7 +262,7 @@
             {
               "id": "57da6c8f-7700-481e-a9ae-1faff7350f24",
               "name": "minified_json_string",
-              "value": "={{ $json.minified_json_string}}",
+              "value": "=loadDistributors({{ $json.minified_json_string}});",
               "type": "string"
             }
           ]
@@ -315,6 +315,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-07-16T02:30:25.000Z",
-  "versionId": "47a9d58e-f28a-41de-919b-19884e47040d"
+  "updatedAt": "2024-07-19T02:11:57.000Z",
+  "versionId": "9a7ff076-18c0-43db-b08b-75bf5b8cf7eb"
 }
