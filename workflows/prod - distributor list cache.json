@@ -220,7 +220,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.body && $json.body.brand,$json.body.brand,'golo') }}\"\n}",
+        "jsonOutput": "={\n  \"brand\": \"{{ $if($json.query && $json.query.brand,$json.query.brand,'golo') }}\"\n}",
         "options": {}
       },
       "id": "4786a956-ca3c-404f-a7e1-0f39fedc1c53",
@@ -315,6 +315,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-07-19T02:11:57.000Z",
-  "versionId": "9a7ff076-18c0-43db-b08b-75bf5b8cf7eb"
+  "updatedAt": "2024-07-23T10:10:05.000Z",
+  "versionId": "015dd8ee-b33c-4b83-aca7-290e0ecc68e8"
 }
