@@ -1166,6 +1166,30 @@
               },
               "renameOutput": true,
               "outputKey": "get_distributors"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "40b0ce42-5a36-4b09-bd43-a460f07b1d5d",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "form",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "form"
             }
           ]
         },
@@ -1190,6 +1214,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-06-26T07:42:05.000Z",
-  "versionId": "f97dc3bc-d162-4db1-9d0b-f5072dd2a7e6"
+  "updatedAt": "2024-07-23T05:29:29.000Z",
+  "versionId": "c792e053-e5d0-4415-ba36-22437a343538"
 }
