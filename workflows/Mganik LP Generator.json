@@ -227,17 +227,6 @@
         ]
       ]
     },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "update json",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Empty Section Template": {
       "main": [
         [
@@ -380,6 +369,17 @@
           }
         ]
       ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-30T05:15:30.520Z",
@@ -474,6 +474,12 @@
               "id": "629f7611-ac4f-456c-8db3-1c77fad03bf2",
               "name": "js_css_contents",
               "value": "={{ $('update json').item.json.js_css_contents }}",
+              "type": "string"
+            },
+            {
+              "id": "44afce00-5c5a-4693-84c1-97ff6ba82df5",
+              "name": "=gtm_id",
+              "value": "={{ $('update json').item.json.gtm_id }}",
               "type": "string"
             }
           ]
@@ -760,7 +766,7 @@
     },
     {
       "parameters": {
-        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n}\n\nreturn $input.all();"
+        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n  item.json.gtm_id = item.json.body.gtm_id;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n}\n\nreturn $input.all();"
       },
       "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
       "name": "update json",
@@ -798,23 +804,6 @@
         1460,
         460
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "generate-lp",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "992fc9f0-ccf8-4a95-ad44-13778d572704",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1260,
-        240
-      ],
-      "webhookId": "e2261f1a-1a67-4d9d-9d74-e036ffa0ad83"
     },
     {
       "parameters": {
@@ -1205,6 +1194,23 @@
         -200,
         840
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "992fc9f0-ccf8-4a95-ad44-13778d572704",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "e2261f1a-1a67-4d9d-9d74-e036ffa0ad83"
     }
   ],
   "pinData": {},
@@ -1214,6 +1220,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-07-23T05:29:29.000Z",
-  "versionId": "c792e053-e5d0-4415-ba36-22437a343538"
+  "updatedAt": "2024-07-29T07:34:04.000Z",
+  "versionId": "ed116525-090a-4f5c-a183-f0cf1554a121"
 }
