@@ -1,0 +1,1210 @@
+{
+  "active": false,
+  "connections": {
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Aggregate generated texts",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If NOT is hidden",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Layout Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If NOT is hidden": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate generated texts": {
+      "main": [
+        [
+          {
+            "node": "Merge list to 1 string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge list to 1 string": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Layout Template": {
+      "main": [
+        [
+          {
+            "node": "GithubVars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GithubVars": {
+      "main": [
+        [
+          {
+            "node": "GitHub Create",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Create": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GitHub Edit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Edit": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Youtube Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OrderOnline Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CTA Button Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Global Block Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Carousel Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update json": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Empty Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marketplace Buttons Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Dist Section Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Image Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Youtube Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "CTA Button Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Marketplace Buttons Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OrderOnline Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Global Block Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Carousel Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Empty Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTML Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Dist Section Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-07-30T03:27:12.513Z",
+  "id": "71y4mpK2uqKtADBC",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Mganik LP Generator - staging",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6617e261-6fae-4484-a3ce-db24d7c67544",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        820,
+        2720
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Upload Landing Page to Github\n**if create new file errors out, then try edit",
+        "height": 441.665074863717,
+        "width": 583.0536168211937
+      },
+      "id": "65706414-dcdc-46e8-91d7-1d5e56f4717a",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        760,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "sections",
+        "options": {}
+      },
+      "id": "946e4349-ccc3-4435-8e66-71d0da894de2",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "fa797e34-8795-4e6d-b582-52c08656d889",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -600,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "799d80a1-3e4e-46e6-a2a0-04687411789a",
+              "name": "sections_html",
+              "value": "={{ $json['sections_html'] }}",
+              "type": "string"
+            },
+            {
+              "id": "7fdc2a48-ce2c-43af-bf19-4d744ef521c8",
+              "name": "lp_slug",
+              "value": "={{ $('update json').item.json.lp_slug }}",
+              "type": "string"
+            },
+            {
+              "id": "4ec04ece-5a3b-4b2a-807d-e197659a1ebd",
+              "name": "lp_title",
+              "value": "={{ $('update json').item.json.lp_title }}",
+              "type": "string"
+            },
+            {
+              "id": "b1b692be-842c-4773-b3bf-e2768caf6ba9",
+              "name": "=brand",
+              "value": "={{ $('update json').item.json.brand }}",
+              "type": "string"
+            },
+            {
+              "id": "629f7611-ac4f-456c-8db3-1c77fad03bf2",
+              "name": "js_css_contents",
+              "value": "={{ $('update json').item.json.js_css_contents }}",
+              "type": "string"
+            },
+            {
+              "id": "44afce00-5c5a-4693-84c1-97ff6ba82df5",
+              "name": "=gtm_id",
+              "value": "={{ $('update json').item.json.gtm_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "375aa8f5-7485-4d18-9492-c1e0099844fa",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -40,
+        240
+      ],
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "1b5d31d7-7bff-4546-90c2-5a6162621d71",
+              "leftValue": "={{ $json.is_hidden }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "aa18e7a6-3bcc-44bb-a67b-cf07bcc5e57e",
+      "name": "If NOT is hidden",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "section-array",
+        "include": "specifiedFields",
+        "fieldsToInclude": "text",
+        "options": {}
+      },
+      "id": "11e63c72-c1b6-43b3-b2ca-2a5a40451d7a",
+      "name": "Aggregate generated texts",
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -460,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let htmlString = \"\";\n\n// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  for (const section of item.json[\"section-array\"]){\n    htmlString += section.text;\n  }\n  item.json[\"sections_html\"] = htmlString;\n}\n\nreturn $input.all();"
+      },
+      "id": "53a86dbc-8d9b-4dca-9eea-7d2aaa25cfcf",
+      "name": "Merge list to 1 string",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-img-section"
+      },
+      "id": "f0bf90bb-9303-4d52-92a0-fe51ebc9c1e5",
+      "name": "Image Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/template-layout"
+      },
+      "id": "a2d168d6-8a81-4cc1-8b5d-057599be0a88",
+      "name": "Layout Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        200,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"github-repo-owner\": \"mganik-dss\",\n  \"github-repo-name\": \"{{ $('update json').item.json.lp_repo_name }}\",\n  \"github-branch-name\": \"staging\"\n}\n",
+        "options": {}
+      },
+      "id": "383b71f0-3648-4dda-a293-7a96c5b989e4",
+      "name": "GithubVars",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        460,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "={{ $('update json').item.json.lp_slug }}/index.html",
+        "fileContent": "={{ $('Layout Template').item.json.text }}",
+        "commitMessage": "=[n8n Bot] {{ $('update json').item.json.lp_slug }}/index.html",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "4a8d44f1-cfdf-4b36-9d4d-b42ca0c31c7e",
+      "name": "GitHub Create",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        840,
+        280
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-owner\"]}}",
+          "mode": ""
+        },
+        "repository": {
+          "__rl": true,
+          "value": "={{$node[\"GithubVars\"].json[\"github-repo-name\"]}}",
+          "mode": ""
+        },
+        "filePath": "={{ $('update json').item.json.lp_slug }}/index.html",
+        "fileContent": "={{ $('Layout Template').item.json.text }}",
+        "commitMessage": "=[n8n Bot] {{ $('update json').item.json.lp_slug }}/index.html",
+        "additionalParameters": {
+          "branch": {
+            "branch": "={{$node[\"GithubVars\"].json[\"github-branch-name\"]}}"
+          }
+        }
+      },
+      "id": "d4fc2c2e-7364-4d71-88c0-e92b7ffbdb6f",
+      "name": "GitHub Edit",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        980,
+        420
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "githubApi": {
+          "id": "E7bouk80WqUWI5Ml",
+          "name": "azraelx23 mganik - GitHub account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-youtube-section"
+      },
+      "id": "d1a3700f-74dc-4aa0-a073-e7aa6c2ac491",
+      "name": "Youtube Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-orderonline-section"
+      },
+      "id": "56bf694f-2664-4bc4-9d9b-a8cc7e643a73",
+      "name": "OrderOnline Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1340
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-cta-button-section"
+      },
+      "id": "5dab492b-5c4f-45c8-ba9a-10e1e8955692",
+      "name": "CTA Button Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-global-block-section"
+      },
+      "id": "7f794d8b-7cf9-44cc-88fe-70fab66b5553",
+      "name": "Global Block Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1520
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-carousel-section"
+      },
+      "id": "2f96d9a0-59d9-4fb9-82a7-044dbeffa2dc",
+      "name": "Carousel Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Render HTML Templates",
+        "height": 2056.100099753781,
+        "width": 1625.0080009833691
+      },
+      "id": "7c640434-fd86-486d-a40d-807313f1c88a",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n  item.json.gtm_id = item.json.body.gtm_id;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://staging.mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
+      },
+      "id": "54dbdb12-6bef-416a-b797-d5b9f71b13bb",
+      "name": "update json",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1100,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"success\",\n  \"url\": \"https://{{ $('GithubVars').item.json[\"github-repo-name\"] }}.pages.dev/{{ $('update json').item.json.lp_slug }}\"\n} ",
+        "options": {}
+      },
+      "id": "7788ad5d-3dce-4908-8318-4b0b99c2785d",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1460,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "15bd0838-4f32-4edc-961a-e3096ddfbb9a",
+      "name": "Respond to Webhook1",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-empty-section"
+      },
+      "id": "a445b261-fe90-4de3-b924-126db4145a9a",
+      "name": "Empty Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1920
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-html-section"
+      },
+      "id": "d9844834-53c7-4ff9-8d41-02a2b16b8f48",
+      "name": "HTML Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2100
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-text-section"
+      },
+      "id": "a14d70d2-65d7-41f2-9032-7c6821e066ff",
+      "name": "Text Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2280
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-marketplace-buttons-section"
+      },
+      "id": "6049e711-dc04-4df2-9db5-c218ba212d7b",
+      "name": "Marketplace Buttons Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-get-distributors"
+      },
+      "id": "bc17836a-6e6f-4428-8da3-836d00e9f056",
+      "name": "Get Dist Section Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2480
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "image",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "3c559625-daeb-4a6f-b133-00bcee50a585",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "youtube",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=youtube"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "6cc53b4c-f4d8-49d6-bbdd-df297836d9c1",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "cta_button",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cta_button"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "25e16668-2b1e-4780-a732-f304cb985870",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "marketplace_buttons",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "marketplace_buttons"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "b545b95b-7bc4-4385-a3a5-1066d7ee1b28",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "orderonline",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "orderonline"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "02968e5a-bc68-408d-9b9e-f844ba507d40",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "global_block",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "global_block"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "9ef1b5fb-8dc0-49ad-a3e6-e7807396c99e",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "carousel",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "carousel"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "e9e0a26b-fac7-41b4-b424-0418f612f5c7",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "empty_section",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "empty_section"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "fc575a9f-eba7-43b9-8dcf-0ef75fd50719",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "html",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "html"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "24c63842-1797-415f-8e64-5319224a8cfc",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "text",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "df8809ab-995c-4888-9f5e-e54187ce062b",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "get_distributors",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "get_distributors"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "40b0ce42-5a36-4b09-bd43-a460f07b1d5d",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "form",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "form"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "2150b45e-be98-4373-95ce-89ef7434be1f",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        -200,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp-staging",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "63acacbe-8850-4416-b42c-27518854dc71",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-07-30T03:30:57.000Z",
+  "versionId": "85ab5370-386b-440c-8529-abbeb466a67a"
+}
