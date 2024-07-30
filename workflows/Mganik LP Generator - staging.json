@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "No Operation, do nothing": {
       "main": [
@@ -780,7 +780,7 @@
     {
       "parameters": {
         "respondWith": "json",
-        "responseBody": "={\n  \"status\": \"success\",\n  \"url\": \"https://{{ $('GithubVars').item.json[\"github-repo-name\"] }}.pages.dev/{{ $('update json').item.json.lp_slug }}\"\n} ",
+        "responseBody": "={\n  \"status\": \"success\",\n  \"url\": \"https://staging.{{ $('GithubVars').item.json[\"github-repo-name\"] }}.pages.dev/{{ $('update json').item.json.lp_slug }}\"\n} ",
         "options": {}
       },
       "id": "7788ad5d-3dce-4908-8318-4b0b99c2785d",
@@ -1205,6 +1205,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-07-30T03:30:57.000Z",
-  "versionId": "85ab5370-386b-440c-8529-abbeb466a67a"
+  "updatedAt": "2024-07-30T04:08:15.000Z",
+  "versionId": "03890c15-3a9b-4e98-9cb4-0481700ff3d9"
 }
