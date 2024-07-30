@@ -766,7 +766,7 @@
     },
     {
       "parameters": {
-        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n  item.json.gtm_id = item.json.body.gtm_id;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n}\n\nreturn $input.all();"
+        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_slug;\n  item.json.gtm_id = item.json.body.gtm_id;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
       },
       "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
       "name": "update json",
@@ -803,21 +803,6 @@
       "position": [
         1460,
         460
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## TASKS\n\n- add global section render\n- check youtube click not working\n- check carousel styling, especially cut off arrows\n\nDONE:\n- add marketplace button section, if 2 items left right, if 1 then centered -- done\n- need to use different template layout, per brand - done\n- distributor list is another type - done\n- gtm_id is not needed anymore, it is per brand - done\n- add empty block section -- done\n\n",
-        "height": 404.7359331090231,
-        "width": 572.9546996948338
-      },
-      "id": "8c4ace16-3164-4037-a34d-463c190fa750",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        -1600,
-        540
       ]
     },
     {
@@ -1220,6 +1205,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-07-29T07:34:04.000Z",
-  "versionId": "ed116525-090a-4f5c-a183-f0cf1554a121"
+  "updatedAt": "2024-07-30T03:24:48.000Z",
+  "versionId": "483edfed-daaa-4b3e-9b5f-a392da5b625d"
 }
