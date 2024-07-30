@@ -562,7 +562,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-img-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-img-section"
       },
       "id": "a539088e-6586-4283-838c-f7744e042373",
       "name": "Image Section Template",
@@ -576,7 +576,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "=https://mganiklptemplates.pages.dev/global/template-layout"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/template-layout"
       },
       "id": "50b930a5-d465-45c9-92cd-121f0635b94e",
       "name": "Layout Template",
@@ -682,7 +682,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-youtube-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-youtube-section"
       },
       "id": "16ffd2f5-0153-4e69-96d8-fdb420d24719",
       "name": "Youtube Section Template",
@@ -696,7 +696,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-orderonline-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-orderonline-section"
       },
       "id": "b8e3d930-772f-4a5e-997f-cd0a51cf25b9",
       "name": "OrderOnline Template",
@@ -710,7 +710,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-cta-button-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-cta-button-section"
       },
       "id": "a9b9ca96-b303-4acf-b1ba-ffd943f004b7",
       "name": "CTA Button Template",
@@ -724,7 +724,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-global-block-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-global-block-section"
       },
       "id": "8bd6887c-8138-4933-a367-54c33e2d52a9",
       "name": "Global Block Section Template",
@@ -738,7 +738,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-carousel-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-carousel-section"
       },
       "id": "ca887cdc-f673-41f8-b7f7-7e1e74a09191",
       "name": "Carousel Section Template",
@@ -808,7 +808,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-empty-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-empty-section"
       },
       "id": "81947ba2-6ac9-4929-beb8-acc79a68cb9a",
       "name": "Empty Section Template",
@@ -822,7 +822,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-html-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-html-section"
       },
       "id": "8522da55-977e-41e8-a0e5-99411d49638b",
       "name": "HTML Section Template",
@@ -836,7 +836,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-text-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-text-section"
       },
       "id": "954f8095-c55b-4287-92ee-2bdb3dce55fd",
       "name": "Text Section Template",
@@ -850,7 +850,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-marketplace-buttons-section"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-marketplace-buttons-section"
       },
       "id": "568203ce-8989-4351-a74a-47312e73e9a4",
       "name": "Marketplace Buttons Template",
@@ -864,7 +864,7 @@
     {
       "parameters": {
         "useTemplateString": false,
-        "templateURL": "https://mganiklptemplates.pages.dev/global/sections/template-get-distributors"
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-get-distributors"
       },
       "id": "2a75ff17-0048-497b-ad45-13354447baeb",
       "name": "Get Dist Section Template",
@@ -1205,6 +1205,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-07-30T03:24:48.000Z",
-  "versionId": "483edfed-daaa-4b3e-9b5f-a392da5b625d"
+  "updatedAt": "2024-07-30T04:21:50.000Z",
+  "versionId": "2a95cc09-7c18-4a18-8f4d-b1bdb50183c5"
 }
