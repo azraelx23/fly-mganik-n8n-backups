@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "When clicking \"Test workflow\"": {
       "main": [
@@ -107,7 +107,8 @@
       "position": [
         -780,
         580
-      ]
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -233,7 +234,7 @@
     },
     {
       "parameters": {
-        "url": "https://api-affiliate.mganik.com/api/v1/distributors",
+        "url": "https://api-staging.mganik.com/api/v1/distributors",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -304,8 +305,7 @@
         -780,
         820
       ],
-      "webhookId": "572d3be4-cdeb-4440-82e8-91fdee937b77",
-      "disabled": true
+      "webhookId": "572d3be4-cdeb-4440-82e8-91fdee937b77"
     }
   ],
   "pinData": {},
@@ -314,7 +314,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2024-07-16T03:12:08.000Z",
-  "versionId": "4ea3de69-c8d0-472a-8c16-7fc10015d88f"
+  "triggerCount": 1,
+  "updatedAt": "2024-07-31T03:08:09.000Z",
+  "versionId": "db40905a-b7c7-49c9-ae59-65b55ec33ba1"
 }
