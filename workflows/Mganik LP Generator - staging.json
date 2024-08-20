@@ -282,6 +282,28 @@
         ]
       ]
     },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Microsite Distributor Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Switch": {
       "main": [
         [
@@ -367,14 +389,10 @@
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Webhook": {
-      "main": [
+        ],
         [
           {
-            "node": "update json",
+            "node": "Get Microsite Distributor Template",
             "type": "main",
             "index": 0
           }
@@ -758,7 +776,7 @@
     {
       "parameters": {
         "content": "## Render HTML Templates",
-        "height": 2056.100099753781,
+        "height": 2246.3633470548307,
         "width": 1625.0080009833691
       },
       "id": "7c640434-fd86-486d-a40d-807313f1c88a",
@@ -879,6 +897,37 @@
       "position": [
         80,
         2480
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp-staging",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "63acacbe-8850-4416-b42c-27518854dc71",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-microsite-section"
+      },
+      "id": "e860d272-eed0-46a9-bd0b-2664ef706c54",
+      "name": "Get Microsite Distributor Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2680
       ]
     },
     {
@@ -1170,6 +1219,30 @@
               },
               "renameOutput": true,
               "outputKey": "form"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "725e0494-69b0-431f-bb91-aa26ba5a02ab",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "microsite_distributor",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "microsite"
             }
           ]
         },
@@ -1185,23 +1258,6 @@
         -200,
         840
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "generate-lp-staging",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "63acacbe-8850-4416-b42c-27518854dc71",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1260,
-        240
-      ],
-      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
     }
   ],
   "pinData": {},
@@ -1211,6 +1267,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-08-01T08:30:23.000Z",
-  "versionId": "b6b09fc6-d9b9-4f27-9c47-841e6aa1ba6b"
+  "updatedAt": "2024-08-20T04:21:53.000Z",
+  "versionId": "7309e1e8-ba2d-4f63-8b6c-f24c36f9f0c4"
 }
