@@ -282,22 +282,33 @@
         ]
       ]
     },
-    "Webhook": {
+    "Get Microsite Distributor Template": {
       "main": [
         [
           {
-            "node": "update json",
+            "node": "No Operation, do nothing",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Get Microsite Distributor Template": {
+    "Get Microsite Outlet Template": {
       "main": [
         [
           {
             "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
             "type": "main",
             "index": 0
           }
@@ -393,6 +404,13 @@
         [
           {
             "node": "Get Microsite Distributor Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Microsite Outlet Template",
             "type": "main",
             "index": 0
           }
@@ -901,6 +919,34 @@
     },
     {
       "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-get-distributor-microsite-section"
+      },
+      "id": "e860d272-eed0-46a9-bd0b-2664ef706c54",
+      "name": "Get Microsite Distributor Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-get-outlet-microsite-section"
+      },
+      "id": "b7fcb537-bffb-4e43-b481-32a3be319577",
+      "name": "Get Microsite Outlet Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        2680
+      ]
+    },
+    {
+      "parameters": {
         "httpMethod": "POST",
         "path": "generate-lp-staging",
         "responseMode": "responseNode",
@@ -915,20 +961,6 @@
         240
       ],
       "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
-    },
-    {
-      "parameters": {
-        "useTemplateString": false,
-        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-microsite-section"
-      },
-      "id": "e860d272-eed0-46a9-bd0b-2664ef706c54",
-      "name": "Get Microsite Distributor Template",
-      "type": "n8n-nodes-document-generator.documentGenerator",
-      "typeVersion": 1,
-      "position": [
-        80,
-        2680
-      ]
     },
     {
       "parameters": {
@@ -1231,7 +1263,7 @@
                   {
                     "id": "725e0494-69b0-431f-bb91-aa26ba5a02ab",
                     "leftValue": "={{ $json.type }}",
-                    "rightValue": "microsite_distributor",
+                    "rightValue": "get_distributor_microsite",
                     "operator": {
                       "type": "string",
                       "operation": "equals",
@@ -1242,7 +1274,31 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "microsite"
+              "outputKey": "microsite distributor"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "0602cd95-98b0-4b6c-93ed-4a58366b3f30",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "get_outlet_microsite",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "microsite outlet"
             }
           ]
         },
@@ -1267,6 +1323,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-08-20T04:21:53.000Z",
-  "versionId": "7309e1e8-ba2d-4f63-8b6c-f24c36f9f0c4"
+  "updatedAt": "2024-08-21T07:09:00.000Z",
+  "versionId": "155af986-e9c2-4369-b80f-423d639ad0e8"
 }
