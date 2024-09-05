@@ -282,6 +282,39 @@
         ]
       ]
     },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Microsite Distributor Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Microsite Outlet Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Switch": {
       "main": [
         [
@@ -367,14 +400,17 @@
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Webhook": {
-      "main": [
+        ],
         [
           {
-            "node": "update json",
+            "node": "Get Microsite Distributor Template",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Microsite Outlet Template",
             "type": "main",
             "index": 0
           }
@@ -752,7 +788,7 @@
     {
       "parameters": {
         "content": "## Render HTML Templates",
-        "height": 2056.100099753781,
+        "height": 2244.790823941578,
         "width": 1625.0080009833691
       },
       "id": "d77ce8af-078d-4303-917c-b214bc6b139d",
@@ -873,6 +909,51 @@
       "position": [
         80,
         2480
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "992fc9f0-ccf8-4a95-ad44-13778d572704",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "e2261f1a-1a67-4d9d-9d74-e036ffa0ad83"
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-get-outlet-microsite-section"
+      },
+      "id": "219e59c2-a1cc-4e35-9d33-0829b1897910",
+      "name": "Get Microsite Outlet Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        2680
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-get-distributor-microsite-section"
+      },
+      "id": "0f166de2-ebce-4014-9d55-e3c5ba223316",
+      "name": "Get Microsite Distributor Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2680
       ]
     },
     {
@@ -1164,6 +1245,54 @@
               },
               "renameOutput": true,
               "outputKey": "form"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "2a3bcc9d-d352-460f-8912-d00f5e39be6b",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "get_distributor_microsite",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "microsite distributor"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "0415bb64-a846-4508-a123-1c1e08af4ecf",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "get_outlet_microsite",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "microsite outlet"
             }
           ]
         },
@@ -1179,23 +1308,6 @@
         -200,
         840
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "generate-lp",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "992fc9f0-ccf8-4a95-ad44-13778d572704",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1260,
-        240
-      ],
-      "webhookId": "e2261f1a-1a67-4d9d-9d74-e036ffa0ad83"
     }
   ],
   "pinData": {},
@@ -1205,6 +1317,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-08-22T04:43:01.000Z",
-  "versionId": "fad9327b-0ee9-48bd-9065-412e80347e6f"
+  "updatedAt": "2024-09-05T08:28:33.000Z",
+  "versionId": "12decec7-24cc-4fb1-b8ba-97be8e2bfff5"
 }
