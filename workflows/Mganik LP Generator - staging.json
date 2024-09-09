@@ -103,17 +103,6 @@
         ]
       ]
     },
-    "Layout Template": {
-      "main": [
-        [
-          {
-            "node": "GithubVars",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "GithubVars": {
       "main": [
         [
@@ -304,17 +293,6 @@
         ]
       ]
     },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "update json",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Switch": {
       "main": [
         [
@@ -416,6 +394,46 @@
           }
         ]
       ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Layout Template": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GithubVars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-07-30T03:27:12.513Z",
@@ -447,7 +465,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        760,
+        1160,
         160
       ]
     },
@@ -640,8 +658,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        460,
-        240
+        980,
+        260
       ]
     },
     {
@@ -670,7 +688,7 @@
       "name": "GitHub Create",
       "type": "n8n-nodes-base.github",
       "position": [
-        840,
+        1240,
         280
       ],
       "typeVersion": 1,
@@ -709,7 +727,7 @@
       "name": "GitHub Edit",
       "type": "n8n-nodes-base.github",
       "position": [
-        980,
+        1380,
         420
       ],
       "typeVersion": 1,
@@ -808,7 +826,7 @@
     },
     {
       "parameters": {
-        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://staging.mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
+        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n  item.json.preview_mode = item.json.body.preview_mode;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://staging.mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
       },
       "id": "54dbdb12-6bef-416a-b797-d5b9f71b13bb",
       "name": "update json",
@@ -830,7 +848,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        1460,
+        1860,
         260
       ]
     },
@@ -843,7 +861,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        1460,
+        1860,
         460
       ]
     },
@@ -944,23 +962,6 @@
         -140,
         2680
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "generate-lp-staging",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "63acacbe-8850-4416-b42c-27518854dc71",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1260,
-        240
-      ],
-      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
     },
     {
       "parameters": {
@@ -1314,6 +1315,86 @@
         -200,
         840
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp-staging",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "63acacbe-8850-4416-b42c-27518854dc71",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "6519bff7-c637-4a5a-b35c-94692cc6ae08",
+              "leftValue": "={{ $('update json').item.json.preview_mode }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "328f4e91-7b93-4fdd-bef7-765c1fdb07b0",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $('Layout Template').item.json.text }}",
+        "options": {}
+      },
+      "id": "4edc135e-c432-470d-a35b-2c65ec2efb8a",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        680,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "if preview_mode = true, returns html",
+        "height": 448.19015149957534,
+        "width": 506.93022229059017
+      },
+      "id": "26ce5297-7891-4364-871a-d99eba2cdff1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        420,
+        -20
+      ]
     }
   ],
   "pinData": {},
@@ -1323,6 +1404,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-08-21T07:09:00.000Z",
-  "versionId": "155af986-e9c2-4369-b80f-423d639ad0e8"
+  "updatedAt": "2024-09-09T04:57:44.000Z",
+  "versionId": "94791a8c-319d-48ae-b86e-12c89e63c141"
 }
