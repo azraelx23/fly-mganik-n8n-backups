@@ -107,7 +107,7 @@
       "main": [
         [
           {
-            "node": "GithubVars",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -416,6 +416,24 @@
           }
         ]
       ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GithubVars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2024-05-30T05:15:30.520Z",
@@ -447,7 +465,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        760,
+        1360,
         160
       ]
     },
@@ -634,8 +652,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        460,
-        240
+        1120,
+        260
       ]
     },
     {
@@ -664,7 +682,7 @@
       "name": "GitHub Create",
       "type": "n8n-nodes-base.github",
       "position": [
-        840,
+        1420,
         280
       ],
       "typeVersion": 1,
@@ -703,7 +721,7 @@
       "name": "GitHub Edit",
       "type": "n8n-nodes-base.github",
       "position": [
-        980,
+        1560,
         420
       ],
       "typeVersion": 1,
@@ -802,7 +820,7 @@
     },
     {
       "parameters": {
-        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n  \n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
+        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n  item.json.preview_mode = item.json.body.preview_mode;\n  \n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
       },
       "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
       "name": "update json",
@@ -824,7 +842,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        1460,
+        2040,
         260
       ]
     },
@@ -837,7 +855,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        1460,
+        2040,
         460
       ]
     },
@@ -1308,6 +1326,69 @@
         -200,
         840
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "6519bff7-c637-4a5a-b35c-94692cc6ae08",
+              "leftValue": "={{ $('update json').item.json.preview_mode }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "58f565cc-278a-46ee-a39e-10b3bedfa9e0",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $('Layout Template').item.json.text }}",
+        "options": {}
+      },
+      "id": "7f50945f-c87c-45a3-ae4d-cd02324fb42a",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "if preview_mode = true, returns html",
+        "height": 448.19015149957534,
+        "width": 506.93022229059017
+      },
+      "id": "89e596bd-77f0-466d-bc1f-8aef4311c8b1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        0
+      ]
     }
   ],
   "pinData": {},
@@ -1317,6 +1398,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-09-05T08:28:33.000Z",
-  "versionId": "12decec7-24cc-4fb1-b8ba-97be8e2bfff5"
+  "updatedAt": "2024-09-09T05:48:16.000Z",
+  "versionId": "9910c58d-7ac2-4a75-bd10-cd3d72285e2f"
 }
