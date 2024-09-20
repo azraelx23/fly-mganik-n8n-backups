@@ -293,6 +293,57 @@
         ]
       ]
     },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Layout Template": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GithubVars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Button To WA Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Switch": {
       "main": [
         [
@@ -392,43 +443,10 @@
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "update json",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Layout Template": {
-      "main": [
-        [
-          {
-            "node": "If",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If": {
-      "main": [
-        [
-          {
-            "node": "Respond to Webhook2",
-            "type": "main",
-            "index": 0
-          }
         ],
         [
           {
-            "node": "GithubVars",
+            "node": "Button To WA Template",
             "type": "main",
             "index": 0
           }
@@ -450,8 +468,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        820,
-        2720
+        800,
+        2900
       ]
     },
     {
@@ -812,7 +830,7 @@
     {
       "parameters": {
         "content": "## Render HTML Templates",
-        "height": 2246.3633470548307,
+        "height": 2420.83814571322,
         "width": 1625.0080009833691
       },
       "id": "7c640434-fd86-486d-a40d-807313f1c88a",
@@ -961,6 +979,100 @@
       "position": [
         -140,
         2680
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp-staging",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "63acacbe-8850-4416-b42c-27518854dc71",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "6519bff7-c637-4a5a-b35c-94692cc6ae08",
+              "leftValue": "={{ $('update json').item.json.preview_mode }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "328f4e91-7b93-4fdd-bef7-765c1fdb07b0",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $('Layout Template').item.json.text }}",
+        "options": {}
+      },
+      "id": "4edc135e-c432-470d-a35b-2c65ec2efb8a",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        680,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "if preview_mode = true, returns html",
+        "height": 448.19015149957534,
+        "width": 506.93022229059017
+      },
+      "id": "26ce5297-7891-4364-871a-d99eba2cdff1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        420,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-button-to-wa-section"
+      },
+      "id": "f0de1a3f-67a2-4b35-a3a5-8f70655d2e8c",
+      "name": "Button To WA Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2880
       ]
     },
     {
@@ -1300,6 +1412,30 @@
               },
               "renameOutput": true,
               "outputKey": "microsite outlet"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "82d8999c-9f6f-4ab6-982c-07ccb369db1b",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "button_to_wa",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "button_to_wa"
             }
           ]
         },
@@ -1315,86 +1451,6 @@
         -200,
         840
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "generate-lp-staging",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "63acacbe-8850-4416-b42c-27518854dc71",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1260,
-        240
-      ],
-      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "6519bff7-c637-4a5a-b35c-94692cc6ae08",
-              "leftValue": "={{ $('update json').item.json.preview_mode }}",
-              "rightValue": "",
-              "operator": {
-                "type": "boolean",
-                "operation": "true",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "328f4e91-7b93-4fdd-bef7-765c1fdb07b0",
-      "name": "If",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.1,
-      "position": [
-        480,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "respondWith": "text",
-        "responseBody": "={{ $('Layout Template').item.json.text }}",
-        "options": {}
-      },
-      "id": "4edc135e-c432-470d-a35b-2c65ec2efb8a",
-      "name": "Respond to Webhook2",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.1,
-      "position": [
-        680,
-        120
-      ]
-    },
-    {
-      "parameters": {
-        "content": "if preview_mode = true, returns html",
-        "height": 448.19015149957534,
-        "width": 506.93022229059017
-      },
-      "id": "26ce5297-7891-4364-871a-d99eba2cdff1",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        420,
-        -20
-      ]
     }
   ],
   "pinData": {},
@@ -1404,6 +1460,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-09-09T04:57:44.000Z",
-  "versionId": "94791a8c-319d-48ae-b86e-12c89e63c141"
+  "updatedAt": "2024-09-20T07:41:12.000Z",
+  "versionId": "adb64a3f-a1aa-4879-bbde-2e50e25638ab"
 }
