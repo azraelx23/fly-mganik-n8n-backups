@@ -293,17 +293,6 @@
         ]
       ]
     },
-    "Webhook": {
-      "main": [
-        [
-          {
-            "node": "update json",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Layout Template": {
       "main": [
         [
@@ -447,6 +436,17 @@
         [
           {
             "node": "Button To WA Template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "update json",
             "type": "main",
             "index": 0
           }
@@ -844,7 +844,7 @@
     },
     {
       "parameters": {
-        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n  item.json.preview_mode = item.json.body.preview_mode;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://staging.mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
+        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors' || section.type === 'marketplace_buttons'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n  item.json.preview_mode = item.json.body.preview_mode;\n\n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://staging.mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
       },
       "id": "54dbdb12-6bef-416a-b797-d5b9f71b13bb",
       "name": "update json",
@@ -980,23 +980,6 @@
         -140,
         2680
       ]
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "generate-lp-staging",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "id": "63acacbe-8850-4416-b42c-27518854dc71",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1260,
-        240
-      ],
-      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
     },
     {
       "parameters": {
@@ -1451,6 +1434,23 @@
         -200,
         840
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "generate-lp-staging",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "63acacbe-8850-4416-b42c-27518854dc71",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1260,
+        240
+      ],
+      "webhookId": "8ea8a70f-f413-4f9b-bf74-e1ff3e63656b"
     }
   ],
   "pinData": {},
@@ -1460,6 +1460,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-09-20T07:41:12.000Z",
-  "versionId": "adb64a3f-a1aa-4879-bbde-2e50e25638ab"
+  "updatedAt": "2024-10-01T08:12:10.000Z",
+  "versionId": "42684ab6-5e10-4e05-a05d-dde8cedc2b79"
 }
