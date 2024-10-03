@@ -315,6 +315,35 @@
         ]
       ]
     },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "GithubVars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Button To WA Template": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Switch": {
       "main": [
         [
@@ -414,21 +443,10 @@
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "If": {
-      "main": [
-        [
-          {
-            "node": "Respond to Webhook2",
-            "type": "main",
-            "index": 0
-          }
         ],
         [
           {
-            "node": "GithubVars",
+            "node": "Button To WA Template",
             "type": "main",
             "index": 0
           }
@@ -451,7 +469,7 @@
       "typeVersion": 1,
       "position": [
         820,
-        2720
+        2900
       ]
     },
     {
@@ -806,7 +824,7 @@
     {
       "parameters": {
         "content": "## Render HTML Templates",
-        "height": 2244.790823941578,
+        "height": 2423.793059785251,
         "width": 1625.0080009833691
       },
       "id": "d77ce8af-078d-4303-917c-b214bc6b139d",
@@ -820,7 +838,7 @@
     },
     {
       "parameters": {
-        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n  item.json.preview_mode = item.json.body.preview_mode;\n  \n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
+        "jsCode": "function extractYouTubeID(url) {\n    if (typeof url !== 'string') {\n        return null;\n    }\n    const regex = /(?:https?:\\/\\/)?(?:www\\.)?(?:youtube\\.com\\/(?:[^\\/\\n\\s]+\\/\\S+\\/|(?:v|e(?:mbed)?|shorts)\\/|\\S*?[?&]v=)|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/;\n    const match = url.match(regex);\n    return match ? match[1] : null;\n}\nfor (const item of $input.all()) {\n\n  let sections = item.json.body.sections;\n\n  // Filtered array containing objects with type 'head_js_css'\n  const headJsCssArray = sections.filter(obj => obj.type === 'head_js_css');\n\n  let js_css_contents = \"\";\n  for(const elem of headJsCssArray){\n    if(!elem.is_hidden){\n      js_css_contents += elem.js_css_content;\n    }\n  }\n  \n  // Original array without objects of type 'head_js_css'\n  sections = sections.filter(obj => obj.type !== 'head_js_css');\n  \n  for(const section of sections){\n    if(!section.is_hidden){\n      if(section.type === 'get_distributors' || section.type === 'marketplace_buttons'){\n        section.brand = item.json.body.brand;\n      }else if(section.type === 'youtube'){\n        section.youtube_id = extractYouTubeID(section.youtube_url);\n      }\n    }\n  }\n  \n  item.json.brand = item.json.body.brand;\n  item.json.lp_repo_name = item.json.body.lp_repo_name;\n  item.json.lp_slug = item.json.body.lp_slug;\n  item.json.lp_title = item.json.body.lp_title;\n  item.json.gtm_id = item.json.body.gtm_id;\n  item.json.meta_bot = item.json.body.meta_bot;\n  item.json.preview_mode = item.json.body.preview_mode;\n  \n  item.json.sections = sections;\n  item.json.js_css_contents = js_css_contents;\n\n  item.json.template_url = \"https://mganiklptemplates.pages.dev\";\n}\n\nreturn $input.all();"
       },
       "id": "5476cc57-a152-453b-a7c4-82b7ca826aaa",
       "name": "update json",
@@ -972,6 +990,83 @@
       "position": [
         80,
         2680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "6519bff7-c637-4a5a-b35c-94692cc6ae08",
+              "leftValue": "={{ $('update json').item.json.preview_mode }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "58f565cc-278a-46ee-a39e-10b3bedfa9e0",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.1,
+      "position": [
+        520,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $('Layout Template').item.json.text }}",
+        "options": {}
+      },
+      "id": "7f50945f-c87c-45a3-ae4d-cd02324fb42a",
+      "name": "Respond to Webhook2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "if preview_mode = true, returns html",
+        "height": 448.19015149957534,
+        "width": 506.93022229059017
+      },
+      "id": "89e596bd-77f0-466d-bc1f-8aef4311c8b1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "useTemplateString": false,
+        "templateURL": "={{ $('update json').item.json.template_url }}/global/sections/template-button-to-wa-section"
+      },
+      "id": "c26dd7b7-7320-4a1c-9b42-9a6616d6f74c",
+      "name": "Button To WA Template",
+      "type": "n8n-nodes-document-generator.documentGenerator",
+      "typeVersion": 1,
+      "position": [
+        80,
+        2880
       ]
     },
     {
@@ -1311,6 +1406,30 @@
               },
               "renameOutput": true,
               "outputKey": "microsite outlet"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "id": "258804ba-555a-410e-9f2c-bbd286a5294a",
+                    "leftValue": "={{ $json.type }}",
+                    "rightValue": "button_to_wa",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "button_to_wa"
             }
           ]
         },
@@ -1326,69 +1445,6 @@
         -200,
         840
       ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "6519bff7-c637-4a5a-b35c-94692cc6ae08",
-              "leftValue": "={{ $('update json').item.json.preview_mode }}",
-              "rightValue": "",
-              "operator": {
-                "type": "boolean",
-                "operation": "true",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "58f565cc-278a-46ee-a39e-10b3bedfa9e0",
-      "name": "If",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.1,
-      "position": [
-        520,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "respondWith": "text",
-        "responseBody": "={{ $('Layout Template').item.json.text }}",
-        "options": {}
-      },
-      "id": "7f50945f-c87c-45a3-ae4d-cd02324fb42a",
-      "name": "Respond to Webhook2",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.1,
-      "position": [
-        720,
-        140
-      ]
-    },
-    {
-      "parameters": {
-        "content": "if preview_mode = true, returns html",
-        "height": 448.19015149957534,
-        "width": 506.93022229059017
-      },
-      "id": "89e596bd-77f0-466d-bc1f-8aef4311c8b1",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        460,
-        0
-      ]
     }
   ],
   "pinData": {},
@@ -1398,6 +1454,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2024-09-09T05:48:16.000Z",
-  "versionId": "9910c58d-7ac2-4a75-bd10-cd3d72285e2f"
+  "updatedAt": "2024-10-03T08:21:42.000Z",
+  "versionId": "4fc69d43-8fa4-4aca-85f5-43b464b91ba4"
 }
